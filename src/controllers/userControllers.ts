@@ -87,6 +87,8 @@ export const desactivateUserController = async (req: AuthenticationRequest, res:
   try {
     const idusers = req.user.idusers
     await desactivateUser(idusers)
+
+    res.json({ message: 'Usuario desactivado correctamente' })
     
   } catch (error) {
     res.status(500).json({ error: `Error al desactivar el usuario` })
@@ -97,7 +99,7 @@ export const reactivateUserController = async (req: AuthenticationRequest, res: 
   try {
     const idusers = req.user.idusers
     await reactivateUser(idusers)
-    
+    res.json({ message: 'Usuario reactivado correctamente' })
   } catch (error) {
     res.status(500).json({ error: `Error al activar el usuario` })
   }
